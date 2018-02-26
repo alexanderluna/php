@@ -1,32 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Title</title>
-  </head>
-  <body>
-    <?php
-
-    $my_name = 'alexander';
-    $arr = ['a', 'b', 'c'];
-    // $arr = (int) $arr;
-
-    if (is_int($arr)) {
-      echo "this array is an integer: $arr";
-    } else {
-      echo 'this array is not an integer';
-    }
-
-    $large_number = 9223372036854775807;
-    var_dump($large_number);
-
-    for ($i=0; $i < count($arr); $i++) {
-      echo "array: $arr[$i]\n";
-    }
-
-    foreach ($arr as $char) {
-      echo $char;
-    }
-    ?>
-  </body>
-</html>
+<?php
+  $param = is_set($_GET["my_param"]) ? $_GET["my_param"] : 'Hello World';
+?>
+<?php include('header.php') ?>
+<h1><?php echo $param ?></h1>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+  laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+  dolor in reprehenderit in voluptate velit esse cillum dolore eu
+  fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+  sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+  laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+  dolor in reprehenderit in voluptate velit esse cillum dolore eu
+  fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+  sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<?php include('footer.php') ?>
