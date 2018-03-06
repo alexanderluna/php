@@ -4,5 +4,10 @@ A collection of PHP projects both small files where I get my feet wet and bigger
 
 ## Blog
 My first PHP laravel project.
-## Learning
-My learning files and notes.
+
+## Playgound
+A place to play around with PHP.
+
+## LOG
+
+__March 6 2018 :__ Started to play around with PHP again mainly because I want to learn more about the whole Wordpress ecosystem.
