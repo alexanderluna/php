@@ -1,13 +1,28 @@
-# PHP repo
+# PHP
 
-A collection of PHP projects both small files where I get my feet wet and bigger projects. All in one place.
+> “PHP is a programming language you can use to create web applications. 
+> It's free, powerful, relatively easy to set up and learn, and it has
+> extensions and frameworks available to do almost anything you could 
+> imagine.” - Excerpt From: Alan Forbes, The Joy of PHP
 
-## Blog
-My first PHP laravel project.
+## Index
 
-## Playgound
-A place to play around with PHP.
+- [Why PHP](#why-php)
+- [My Goals with PHP](#my-goals-with-php)
+- [Learning PHP](/learning_php)
+- [Wordpress](/wordpress)
+- [Laravel](/laravel)
 
-## LOG
+## Why PHP
 
-__March 6 2018 :__ Started to play around with PHP again mainly because I want to learn more about the whole Wordpress ecosystem.
+PHP is a well established web development language. It can be used with the
+famous CMS Wordpress, frameworks such as Laravel or by itself.
+
+## My Goals with PHP
+
+After hearing and reading about PHP for a long time I decided to pick it up for
+the above stated reason. My main goals with this language are:
+
+- Wordpress template development
+- Wordpress plugin development
+- Build websites using Laravel/Symfony
