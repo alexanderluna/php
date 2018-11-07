@@ -4,6 +4,18 @@
 > use a docker conatiner and compose it up withe current directory mounted as
 > a volume. View [docker-compose.yml](docker-compose.yml)
 
+- [Learning PHP](#learning-php)
+  - [The Basics](#the-basics)
+    - [Variables](#variables)
+    - [Numbers and Arithmetic](#numbers-and-arithmetic)
+    - [Strings](#strings)
+    - [Control Structure](#control-structure)
+  - [Format HTML](#format-html)
+  - [Working with Dates](#working-with-dates)
+  - [Using a Database](#using-a-database)
+  - [Working with Forms](#working-with-forms)
+    - [SQL Injection](#sql-injection)
+
 ## The Basics
 
 ### Variables
@@ -80,8 +92,7 @@ for($i = 0; $i < 10; $i++) {
 ## Format HTML
 
 PHP is used to format HTML and inject dynamic content. This archived through a
-server capable of parsing PHP and the special PHP tag
-(**<?php code_goes_here ?>**):
+server capable of parsing PHP and the special PHP tag:
 
 ```php
 // print the version in the browser
@@ -107,3 +118,45 @@ PHP has built in functions to work with dates:
 - mktime() - (timestamp for a time)
 - time() - (get today's date)
 - date() - (get and format date)
+
+## Using a Database
+
+PHP has support for various database systems. The most popular option for PHP
+is MySQL. We use the official mysql docker image to speed things up. Furthermore
+, we install the **mysqli** extension to work with our mysql database:
+
+```php
+// connect to database
+$conn = new mysqli(host, user, username);
+
+// check for errors
+if ($conn->connect_error) {
+  echo 'ERROR: failed to connect to the database'.$conn.connect_error;
+}
+
+// perform an SQL query
+$conn->query('SQL QUERY GOES HERE');
+
+// display latest error
+$conn->error;
+```
+
+## Working with Forms
+
+You can access form field properties with the **$_POST** variables which holds
+all the fields:
+
+```php
+$name = $_POST['name'];
+
+$conn = new msqli(init, db, connection);
+
+// don't trust user input
+$conn->escape_string($name);
+```
+
+### SQL Injection
+
+As always, never trust user input. Any user can sneak SQL statements into our
+database if we don't clean up the input previously. For those reasons clean
+and double check user inputs before inserting it into an SQL query.
