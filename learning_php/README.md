@@ -1,8 +1,8 @@
 # Learning PHP
 
-> In order to work with PHP we need a PHP server. For the simplest option is to
-> use a docker conatiner and compose it up withe current directory mounted as
-> a volume. View [docker-compose.yml](docker-compose.yml)
+> In order to work with PHP we need a PHP server. The simplest option is to
+> use a docker container and compose it up within the current directory mounted
+> as a volume. View [docker-compose.yml](docker-compose.yml)
 
 - [Learning PHP](#learning-php)
   - [The Basics](#the-basics)
@@ -21,7 +21,7 @@
 ### Variables
 
 Variables start with a dollar sign ($) and are case sensitive. The scope of the
-variable depends on where you set it. It is possible to make variable gloablly
+variable depends on where you set it. It is possible to make variable globally
 available using the **global** keyword:
 
 ```php
@@ -91,8 +91,8 @@ for($i = 0; $i < 10; $i++) {
 
 ## Format HTML
 
-PHP is used to format HTML and inject dynamic content. This archived through a
-server capable of parsing PHP and the special PHP tag:
+PHP is used to format HTML and inject dynamic content. This is archived through
+a server capable of parsing PHP and the special PHP tag:
 
 ```php
 // print the version in the browser
@@ -143,8 +143,8 @@ $conn->error;
 
 ## Working with Forms
 
-You can access form field properties with the **$_POST** variables which holds
-all the fields:
+You can access form field properties with the **$_POST/$_GET** variables which
+holds all the post parameters and queries respectively:
 
 ```php
 $name = $_POST['name'];
@@ -157,6 +157,6 @@ $conn->escape_string($name);
 
 ### SQL Injection
 
-As always, never trust user input. Any user can sneak SQL statements into our
+As always, never trust user input. Any user can sneak in SQL statements into our
 database if we don't clean up the input previously. For those reasons clean
 and double check user inputs before inserting it into an SQL query.
