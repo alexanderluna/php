@@ -8,6 +8,6 @@
 </head>
 <body>
     <h2>Partials are useful</h2>
-    <?php include 'helper/info.php'; ?>
+    <?php include '_helper/info.php'; ?>
 </body>
 </html>
