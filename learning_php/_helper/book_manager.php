@@ -36,7 +36,8 @@ function create_inventory_table($conn) {
             Year INT,
             Author VARCHAR(50),
             Publisher VARCHAR(100),
-            Pice DECIMAL(5,2)
+            Price DECIMAL(5,2)
+            Image VARCHAR(120)
         );
     ";
 
@@ -61,7 +62,8 @@ function insert_book_to_database($book, $conn) {
             Year,
             Author,
             Publisher,
-            Pice  
+            Price,
+            Image
         )
         VALUES
         (
@@ -70,7 +72,8 @@ function insert_book_to_database($book, $conn) {
             '$book->year',
             '$book->author',
             '$book->publisher',
-            '$book->price'
+            '$book->price',
+            '$book->image'
         )
     ";
 
@@ -136,7 +139,7 @@ function display_books($books) {
         echo "<td>" . $book["Year"] . "</td>";
         echo "<td>" . $book["Author"] . "</td>";
         echo "<td>" . $book["Publisher"] . "</td>";
-        echo "<td>" . $book["Pice"] . "</td>";
+        echo "<td>" . $book["Price"] . "</td>";
         echo "<td> <a href='007_book_detail.php?ISBN=";
         echo $book["ISBN"];
         echo "'>more info</a></td>"; 
@@ -156,12 +159,13 @@ function display_books($books) {
 
 function display_book($book_result) {
     while ($book = $book_result->fetch_assoc()) {
+        echo "<img src='" . $book['Image'] . "'/>";
         echo "<p>ISBN: " . $book['ISBN'] . "</p>";
         echo "<p>Title: " . $book['Title'] . "</p>";
         echo "<p>Year: " . $book['Year'] . "</p>";
         echo "<p>Author: " . $book['Author'] . "</p>";
         echo "<p>Publisher: " . $book['Publisher'] . "</p>";
-        echo "<p>Price: " . $book['Pice'] . "</p>";
+        echo "<p>Price: " . $book['Price'] . "</p>";
     }
 }
 ?>
