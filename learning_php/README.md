@@ -15,6 +15,8 @@
   - [Using a Database](#using-a-database)
   - [Working with Forms](#working-with-forms)
     - [SQL Injection](#sql-injection)
+  - [Sessions and Session Variables](#sessions-and-session-variables)
+  - [File Upload](#file-upload)
 
 ## The Basics
 
@@ -160,3 +162,59 @@ $conn->escape_string($name);
 As always, never trust user input. Any user can sneak in SQL statements into our
 database if we don't clean up the input previously. For those reasons clean
 and double check user inputs before inserting it into an SQL query.
+
+## Sessions and Session Variables
+
+Session variables persits across sites until the browser is closed or until we
+terminate it explicitly. Sessions work by storing all the information using a
+UID in a cookie. We can use Sessions in PHP like this:
+
+```php
+session_start();
+
+<html>
+...
+```
+
+We can then retrieve and set data in our Session using the **$_SESSION**
+variables:
+
+```php
+// set data
+$_SESSION['name'] = 'Alexander';
+$_SESSION['country'] = 'Germany';
+
+// get data
+$_SESSION['name'];
+
+// check if data exists
+if (isset($_SESSION['name'])) {
+  echo 'Name is already set';
+} else {
+  echo 'Name is not set';
+}
+
+// remove specific session data
+unset($_SESSION['name'])
+
+// remove all session data
+session_destroy();
+```
+
+## File Upload
+
+Similar to **$_GET/$_POST** we can catch any file from a from using the
+**$_FILE** variable.
+
+```php
+// any errors with the file
+$_FILE["file"]["error"];
+
+// the file itself
+$_FILE["file"]["file_field_name"];
+
+// file metadata
+$_FILE["file"]["type"];
+$_FILE["file"]["size"];
+$_FILE["file"]["tmp_name"];
+```
