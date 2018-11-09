@@ -5,8 +5,16 @@ services:
     image: mysql
     volumes:
     - mysqldata:/var/lib/mysql
+    container_name: db
+
+  server:
+    image: phpmyadmin/phpmyadmin
     environment:
-      MYSQL_ROOT_PASSWORD: secret
+      - PMA_HOST=db
+      - PMA_USER=alexander
+      - PMA_PASSWORD=alexander
+    ports:
+      - 8000:80
 
   php:
     build: './php/'
