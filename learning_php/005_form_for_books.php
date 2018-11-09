@@ -13,6 +13,10 @@
         th, td {
             padding: 0.5rem;
         }
+        label, input {
+            display:block;
+            padding:0.2rem;
+        }
         .odd {
             background: slategrey;
             color: whitesmoke;
@@ -39,6 +43,9 @@
 
         <label for="price">Price</label>
         <input name="price" type="text">
+
+        <label for="image">Image</label>
+        <input name="image" type="text">
 
         <input type="submit" value="Submit">
     </form>

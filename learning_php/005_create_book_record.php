@@ -26,7 +26,8 @@
         $_POST['year'],
         $_POST['author'],
         $_POST['publisher'],
-        $_POST['price']
+        $_POST['price'],
+        $_POST['image']
     );
 
     connect_to_database($conn);
