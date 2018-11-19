@@ -1,0 +1,32 @@
+version: '3.2'
+
+services:
+  db:
+    image: mysql
+    volumes:
+    - mysqldata:/var/lib/mysql
+    container_name: db
+
+  server:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=alexander
+      - PMA_PASSWORD=alexander
+    ports:
+      - 8000:80
+
+  php:
+    image: mycroft1891/php_mysqli
+    working_dir: /project
+    depends_on:
+      - db
+    volumes:
+      - .:/project
+    ports:
+      - 4000:4000
+    command: ['php', '-S', '0.0.0.0:4000']
+
+volumes:
+  mysqldata:
+    external: true
