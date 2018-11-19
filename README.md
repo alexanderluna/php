@@ -1,8 +1,8 @@
 # PHP
 
-> “PHP is a programming language you can use to create web applications. 
+> “PHP is a programming language you can use to create web applications.
 > It's free, powerful, relatively easy to set up and learn, and it has
-> extensions and frameworks available to do almost anything you could 
+> extensions and frameworks available to do almost anything you could
 > imagine.” - Excerpt From: Alan Forbes, The Joy of PHP
 
 ## Index
@@ -11,7 +11,7 @@
 - [My Goals with PHP](#my-goals-with-php)
 - [Learning PHP](/learning_php)
 - [Wordpress](/wordpress)
-    - [Themes](/wordpress/theme)
+    - [Themes](/wordpress/themes)
     - [Plugins](/wordpress/plugins)
 - [Laravel](/laravel)
 
