@@ -11,6 +11,8 @@
 - [My Goals with PHP](#my-goals-with-php)
 - [Learning PHP](/learning_php)
 - [Wordpress](/wordpress)
+    - [Themes](/wordpress/theme)
+    - [Plugins](/wordpress/plugins)
 - [Laravel](/laravel)
 
 ## Why PHP
