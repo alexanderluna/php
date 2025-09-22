@@ -2,14 +2,18 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class AppController
+class AppController extends AbstractController
 {
     #[Route('/')]
-    public function homepage(): Response
+    public function home(): Response
     {
-        return new Response('<h2>Hello World</h2>');
+        $year = 2025;
+        return $this->render('app/home.html.twig', parameters: [
+            'year' => $year
+        ]);
     }
 }

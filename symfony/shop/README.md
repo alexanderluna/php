@@ -24,3 +24,30 @@ and recipes which is a set of files required to make the installed package work.
 > Once we install fixer with `composer require cs-fixer-shim`, we can format our
 > project to follow the symfony code styling guide by running:
 > `./vendor/bin/php-cs-fixer fix`
+
+The most used templating library on symfony is `twig` which can be installed
+thanks to `flex` with just: `composer require twig`. Now we have to modify our
+controller so it extends the `AbstractController` in order to get shortcut
+methods.
+
+Inside the controller we can return our templates following a simple convention.
+Every controller has to have its own folder inside the template directory and
+each route/method should have a file named the same way.
+
+```php
+class AppController extends AbstractController
+{
+    public function home()
+    {
+        // return new Response(...)
+        return $this->render('app/home.html.twig')
+    }
+}
+```
+
+```zsh
+templates
+├── app
+│   └── home.html.twig
+└── base.html.twig
+```
