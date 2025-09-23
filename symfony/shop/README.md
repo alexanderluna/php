@@ -102,3 +102,34 @@ configuration process.
 ```zsh
 bin/console debug:autowiring
 ```
+
+We can and should create our services. In fact, controllers and repositories
+are services. We create our services inside the `src` directory. You can use
+your own created services by adding them as method arguments (method injection)
+or you can add them to the constructor (constructor injection). Constructor
+injection will instantiate the service for each route while method injection
+gives you more granular control.
+
+## Routing
+
+Inside our controller we handle routing with the route decorator.
+
+```php
+#[Route('/path/to/endpoint', methods: ['GET'])]
+#[Route('/path/to/endpoint/{placeholder}', methods: ['GET'])]
+```
+
+We can also generate named routes which allow us to reference routes inside our
+templates.
+
+```php
+#[Route('/product/{id}', name: 'product_show')]
+```
+
+```twig
+<td>
+    <a href="{{ path('product_show', {id: product.id} ) }}">
+        {{ product.name }}
+    </a>
+</td>
+```

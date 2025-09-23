@@ -1,24 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 {% block body %}
 
-<h2>Product Page</h2>
+<h2>{{ product.name }}</h2>
 
 <table>
     <thead>
         <tr>
-            <th>Product {{ product.id}} from {{ products | length }}</th>
+            <th>Product {{ product.id}}</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>
-                <a href="{{ path('product_show', {id: product.id} ) }}">
-                    {{ product.name }}
-                </a>
-            </td>
+            <td>{{ product.name }}</td>
         </tr>
         <tr>
             <td>{{ product.description }}</td>
