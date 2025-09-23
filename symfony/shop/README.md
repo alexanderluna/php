@@ -51,3 +51,5 @@ templates
 │   └── home.html.twig
 └── base.html.twig
 ```
+
+> `base.html.twig` contains the template that is rendered on all views.
