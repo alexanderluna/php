@@ -1,5 +1,7 @@
 # Symfony Store
 
+[![certificate](./assets/images/sfcasts-certificate-cosmic-coding-with-symfony-7.png)](./assets/images/sfcasts-certificate-cosmic-coding-with-symfony-7.pdf)
+
 ## Setup and Installation
 
 Symfony is a framework that comes with binaries that help you to manage your
@@ -185,4 +187,20 @@ To install both run:
 ```zsh
 composer require symfony/stimulus-bundle
 composer require symfony/ux-turbo
+```
+
+## Maker Bundle
+
+Symfony has a powerful tool to generate code called Maker Bundle. Maker Bundle
+enables us to generate all kinds of functionality like authentication, console
+commands, forms, twig components and many more.
+
+To install it run:
+
+```zsh
+composer require symfony/maker-bundle --dev
+
+symfony console make:command # name the command product:status
+
+symfony console product:status
 ```
