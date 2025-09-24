@@ -60,6 +60,12 @@ templates
 
 > `base.html.twig` contains the template that is rendered on all views.
 
+We can also generate partials to clean up our templates.
+
+```twig
+{{ include('app/_homeAside.html.twig) }}
+```
+
 ## Debug and Serialize JSON
 
 Symfony has a powerful debugger which we can install thanks to `flex` with
@@ -132,4 +138,35 @@ templates.
         {{ product.name }}
     </a>
 </td>
+```
+
+## CSS, Javascript and Images with Asset Mapper
+
+Symfony has a component that helps us manage our assets in an efficient manner
+called Asset Mapper. It will automatically add asset versioning which to
+optimize caching
+
+```zsh
+composer require symfony/asset-mapper
+composer require symfony/asset
+```
+
+Now can run `bin/console debug:asset` to list all the logical paths to our
+assets and insert them in our templates using the `asset()` function. We can
+even add tailwind now.
+
+```zsh
+composer require symfonycasts/tailwind-bundle
+
+bin/console tailwind:init
+bin/console tailwind:build -w
+```
+
+In order to run tailwind everytime the server runs create a
+`.symfony.local.yaml` file.
+
+```yaml
+workers:
+  tailwind:
+      cmd: ['symfony', 'console', 'tailwind:build', '--watch']
 ```

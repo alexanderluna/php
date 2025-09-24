@@ -6,6 +6,7 @@ class Product
 {
     public function __construct(
         private int $id,
+        private ProductStatusEnum $status,
         private string $name,
         private string $description,
         private float $price,
@@ -13,22 +14,32 @@ class Product
 
     }
 
-    function getId(): int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    function getName(): string
+    public function getStatus(): ProductStatusEnum
+    {
+        return $this->status;
+    }
+
+    public function getStatusString(): string
+    {
+        return $this->status->value;
+    }
+
+    public function getName(): string
     {
         return $this->name;
     }
 
-    function getDescription(): string
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    function getPrice(): float
+    public function getPrice(): float
     {
         return $this->price;
     }

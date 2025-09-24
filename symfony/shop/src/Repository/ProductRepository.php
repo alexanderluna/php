@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Model\Product;
+use App\Model\ProductStatusEnum;
 use Psr\Log\LoggerInterface;
 
 class ProductRepository
@@ -18,18 +19,21 @@ class ProductRepository
         return [
             new Product(
                 id: 1, 
+                status: ProductStatusEnum::IN_STOCK,
                 name: 'moon beer',
                 description: 'the best moon beer',
                 price: 15
             ),
             new Product(
                 id: 2, 
+                status: ProductStatusEnum::OUT_OF_STOCK,
                 name: 'lager beer',
                 description: 'low temperature beer',
                 price: 20
             ),
             new Product(
                 id: 3,
+                status: ProductStatusEnum::LOW_STOCK,                
                 name:'pilsner',
                 description:'pale lager beer',
                 price: 17.5
