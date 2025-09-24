@@ -170,3 +170,19 @@ workers:
   tailwind:
       cmd: ['symfony', 'console', 'tailwind:build', '--watch']
 ```
+
+## Stimulus and Turbo
+
+If you want to add logic to your views you can add a frontend library like
+React or pick a simpler approach with Stimulus and Turbo. Stimulus is a modest
+javascript framework that you can use to add functionality little by little
+where ever you need it. Turbo is a set of techniques that reduces the amount of
+full page reloads making it a very close competitor single page applications. It
+does this by intercepting your requests and sending an AJAX call instead.
+
+To install both run:
+
+```zsh
+composer require symfony/stimulus-bundle
+composer require symfony/ux-turbo
+```
