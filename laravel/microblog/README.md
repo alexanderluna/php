@@ -50,3 +50,42 @@ lets us set title in our layout.
 
     <h2>...</h2>
 </x-layout>
+```
+
+## Controllers
+
+To generate a controller you can use artisan and tell it if you want it to be
+an empty controller, a resource or something else.
+
+```zsh
+php artisan make:controller
+```
+
+## Database
+
+When we generate our laravel project we also created a database (depending your
+choice). To make changes to it we can generate a migration and apply the
+migration with artisan.
+
+```zsh
+php artisan make:migration
+
+php artisan migrate
+
+php artisan migrate:fresh # drop everything and reapply migrations
+```
+
+We can also experiment with our database by using the thinker command.
+
+```zsh
+php artisan tinker
+```
+
+Once we ran our migration we are going to need to a model which we can generate
+with artisan.
+
+```zsh
+php artisan make:model
+
+php artisan make:model Post -mrc # m = model, rc = resource controller
+```
