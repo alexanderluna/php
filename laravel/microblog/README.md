@@ -4,23 +4,22 @@
 
 ```sh
 brew install php
-
 brew install composer # add Composer to your path afterwards
-
 composer global require laravel/installer
 
+# install valet and access each directory: http://<directory-name>.test
 composer global require laravel/valet # development environment for laravel
-
 valet install
-
 cd path/where/you/store/projects
+valet park
 
-valet park # access each directory: http://<directory-name>.test
+# start the development server with tailwindcss in parallel
+composer run dev
 ```
 
 ## Routes
 
-Within the `routes/web.php` file laravel is responsible for handling routes and
+Within the `routes/web.php` file, Laravel is responsible for handling routes and
 rendering views.
 
 ## Views
@@ -63,9 +62,9 @@ php artisan make:controller
 
 ## Database
 
-When we generate our laravel project we also created a database (depending your
+When we generate our Laravel project we also created a database (depending your
 choice). To make changes to it we can generate a migration and apply the
-migration with artisan.
+migration with artisan or generate a Seeder file to seed our Database.
 
 ```zsh
 php artisan make:migration
@@ -73,6 +72,10 @@ php artisan make:migration
 php artisan migrate
 
 php artisan migrate:fresh # drop everything and reapply migrations
+
+php artisan make:seeder PostSeeder
+
+php artisan db:seed --class=PostSeeder
 ```
 
 We can also experiment with our database by using the thinker command.
