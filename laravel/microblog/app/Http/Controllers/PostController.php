@@ -32,7 +32,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'message' => 'required|string|max:255|min:5'
+        ], [
+            'message.required' => 'Please write something to Post',
+            'message.max' => 'Posts must be 255 characters or less',
+            'message.min' => 'Please write something longer to Post',
+        ]);
+
+        Post::create([
+            'message' => $validated['message'],
+            'user_id' => null,
+        ]);
+
+        return redirect('/')->with('success', 'Your Post is live now 🎉');
     }
 
     /**
