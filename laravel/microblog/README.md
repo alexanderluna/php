@@ -1,4 +1,4 @@
-# Laravel
+# Laravel Microblog
 
 ## Setup and Requirements
 
@@ -16,6 +16,11 @@ valet park
 # start the development server with tailwindcss in parallel
 composer run dev
 ```
+
+## Model
+
+- User: name, email, password
+- Post: user_id:fk, message
 
 ## Routes
 
@@ -59,6 +64,20 @@ an empty controller, a resource or something else.
 ```zsh
 php artisan make:controller
 ```
+
+To validate form input, use the request parameter.
+
+```php
+public function store(Request $request)
+    {
+        $validated = $request->validate(['message' => 'required|string|max:255|min:5']);
+        // ...
+    }
+```
+
+## Policies
+
+Policies can be added to group together all the authorization code needed.
 
 ## Database
 
