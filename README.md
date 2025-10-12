@@ -8,23 +8,21 @@
 ## Index
 
 - [Why PHP](#why-php)
-- [My Goals with PHP](#my-goals-with-php)
 - [Learning PHP](/learning_php)
 - [Wordpress](/wordpress)
-    - [Themes](/wordpress/themes)
-    - [Plugins](/wordpress/plugins)
+  - [Themes](/wordpress/themes)
+  - [Plugins](/wordpress/plugins)
 - [Laravel](/laravel)
+- [Symfony](/symfony/)
 
 ## Why PHP
 
 PHP is a well established web development language. It can be used with the
-famous CMS Wordpress, frameworks such as Laravel or by itself.
+famous CMS Wordpress, frameworks such as Laravel/Symfony or by itself to write
+command line interfaces.
 
-## My Goals with PHP
+## Resources
 
-After hearing and reading about PHP for a long time I decided to pick it up for
-the above stated reason. My main goals with this language are:
-
-- Wordpress template development
-- Wordpress plugin development
-- Build websites using Laravel/Symfony
+- [Learning PHP, MySQL & JavaScript](https://www.oreilly.com/library/view/learning-php-mysql/9781098152345/)
+- [PHP Crash Course](https://www.oreilly.com/library/view/php-crash-course/9798341620049/)
+- [Laravel: Up & Running](https://www.oreilly.com/library/view/laravel-up/9798341642409/)
