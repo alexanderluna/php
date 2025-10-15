@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -40,10 +42,7 @@ class PostController extends Controller
             'message.min' => 'Please write something longer to Post',
         ]);
 
-        Post::create([
-            'message' => $validated['message'],
-            'user_id' => null,
-        ]);
+        auth()->user()->posts()->create($validated);
 
         return redirect('/')->with('success', 'Your Post is live now 🎉');
     }
@@ -61,6 +60,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('update', $post);
         return view('posts.edit', compact('post'));
     }
 
@@ -69,6 +69,8 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $this->authorize('update', $post);
+
         $validated = $request->validate([
             'message' => 'required|string|max:255|min:5'
         ]);
@@ -83,6 +85,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $this->authorize('destroy', $post);
+
         $post->delete();
 
         return redirect('/')->with('success', 'Post was deleted!');

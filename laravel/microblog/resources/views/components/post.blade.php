@@ -19,29 +19,31 @@
                     </div>
                 </div>
             @endif
-            <div class="min-w-0">
-                <div class="flex items-center gap-1">
-                    <span class="text-sm font-semibold">{{ $post->user ? $post->user->name : 'Anonymous' }}</span>
-                    <span class="text-base-content/60">·</span>
-                    <span class="text-sm text-base-content/60">{{ $post->created_at->diffForHumans() }}</span>
-                    @if ($post->updated_at->gt($post->created_at->addSeconds(5)))
-                        <span class="text-base-content/60">․</span>
-                        <span class="text-sm text-base-content/60 italic">edited</span>
-                    @endif
-                </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-1">
+                        <p class="text-sm font-semibold">{{ $post->user ? $post->user->name : 'Anonymous' }}</p>
+                        <span class="text-base-content/60">·</span>
+                        <p class="text-sm text-base-content/60">{{ $post->created_at->diffForHumans() }}</p>
+                        @if ($post->updated_at->gt($post->created_at->addSeconds(5)))
+                            <span class="text-base-content/60">·</span>
+                            <span class="text-sm text-base-content/60 italic">edited</span>
+                        @endif
+                    </div>
 
-                <div class="flex gap-1">
-                    <a href="/posts/{{ $post->id }}/edit" class="btn btn-ghost btn-xs">
-                        Edit
-                    </a>
-                    <form method="POST" action="/posts/{{ $post->id }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')"
-                            class="btn btn-ghost btn-xs text-error">
-                            Delete
-                        </button>
-                    </form>
+                    @can('update', $post)
+                        <div class="flex gap-1">
+                            <a href="/posts/{{ $post->id }}/edit" class="btn btn-ghost btn-xs">Edit</a>
+                            <form method="POST" action="/posts/{{ $post->id }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')"
+                                    class="btn btn-ghost btn-xs text-error">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    @endcan
                 </div>
 
                 <p class="mt-1">

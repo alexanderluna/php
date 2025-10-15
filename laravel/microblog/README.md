@@ -58,6 +58,9 @@ lets us set title in our layout.
 
 ## Controllers
 
+- PostController: handle CRUD for posts
+- Register: handle authentication
+
 To generate a controller you can use artisan and tell it if you want it to be
 an empty controller, a resource or something else.
 
@@ -78,6 +81,20 @@ public function store(Request $request)
 ## Policies
 
 Policies can be added to group together all the authorization code needed.
+
+```zsh
+php artisan make:policy PostPolicy --model=Post
+```
+
+We can then check in our policy which actions we want to allow.
+
+```php
+public function update(User $user, Post $post): bool
+{
+    // return true if the post user is the same as the current user
+    return $post->user()->is($user);
+}
+```
 
 ## Database
 
