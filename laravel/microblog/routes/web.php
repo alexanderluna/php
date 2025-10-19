@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\Login;
 use App\Http\Controllers\Auth\Logout;
 use App\Http\Controllers\Auth\Register;
 use App\Http\Controllers\PostController;
@@ -16,7 +17,7 @@ Route::get('/', [PostController::class, 'index']);
 // });
 
 // the shorthand way to defining the routes with resources
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::resource('posts', PostController::class)
         ->only(['store', 'edit', 'update', 'destroy']);
 });
@@ -29,4 +30,12 @@ Route::post('/register', Register::class)
     ->middleware('guest');
 
 Route::post('/logout', Logout::class)
-    ->middleware('auth');
+    ->middleware('auth')
+    ->name('logout');
+
+Route::view('/login', 'auth.login')
+    ->middleware('guest')
+    ->name('login');
+
+Route::post('/login', Login::class)
+    ->middleware('guest');

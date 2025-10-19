@@ -1,5 +1,21 @@
 # Laravel Microblog
 
+Microblog is a small social media application built with
+[Laravel](https://laravel.com/learn/getting-started-with-laravel). It serves as
+a practical example of the framework's core functionalities, including user
+authentication, database management with Eloquent ORM, form validation, and a
+frontend built with Blade templates and Tailwind CSS.
+
+## Table of Content
+
+1. [Setup and Requirements](#setup-and-requirements)
+2. [Models](#model)
+3. [Routes](#routes)
+4. [Views](#views)
+5. [Controllers](#controllers)
+6. [Policies](#policies)
+7. [Database](#database)
+
 ## Setup and Requirements
 
 ```sh
